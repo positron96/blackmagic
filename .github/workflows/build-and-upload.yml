@@ -267,6 +267,8 @@ jobs:
           pacboy: >-
             toolchain:p
             meson:p
+            hidapi:p
+            libusb:p
 
       # Build a suitable runtime environment
       - name: Runtime environment
@@ -313,6 +315,11 @@ jobs:
           mkdir src/artefacts
           mv build/blackmagic.exe src/artefacts/blackmagic-bmda.exe
           mv build/ftd2xx.dll src/artefacts
+          find $MSYSTEM_PREFIX -name libusb-1.0.dll
+          find $MSYSTEM_PREFIX -name libhidapi-0.dll
+          cp /ucrt64/bin/libusb-1.0.dll src/artefacts
+          cp /ucrt64/bin/libhidapi-0.dll src/artefacts
+
 
       # Package up all the artefacts and upload them
       - name: Archive firmware build artefacts as a zip
