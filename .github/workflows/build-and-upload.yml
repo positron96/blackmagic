@@ -22,6 +22,7 @@ permissions:
 jobs:
   # This workflow contains a job for each supported OS in the form `build-<os>`
   build-firmware:
+    if: false
     # The type of runner that the job will run on
     runs-on: ${{ matrix.os.id }}
 
@@ -139,6 +140,7 @@ jobs:
           delete-merged: true
 
   build-linux:
+    if: false
     # The type of runner that the job will run on
     runs-on: ${{ matrix.os.id }}
 
@@ -352,6 +354,7 @@ jobs:
           retention-days: 5
 
   build-macos:
+    if: false
     # Name the job more appropriately so we can tell which Xcode/macOS version is in use
     name: 'build-macos (${{ matrix.os.id }})'
     # The type of runner that the job will run on
